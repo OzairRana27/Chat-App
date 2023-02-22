@@ -2,9 +2,10 @@
 <html>
 
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Chat App</title>
     <link rel="icon" href="/img/favicon.png">
-    <link rel="stylesheet" href="/css/styles.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 
 <body>
@@ -12,17 +13,34 @@
         <div id="sidebar" class="chat__sidebar">
         </div>
         <div class="chat__main">
-            <div id="messages" class="chat__messages"></div>
+            <div id="messages" class="chat__messages">
+            </div>
         
             <div class="compose">
+                <div class="form-div">
                 <form id="message-form">
                     <input name="message" placeholder="Message" required autocomplete="off">
                     <button>Send</button>
                 </form>
-                <button id="send-location">Send location</button>
+                </div>
                 <form id="files" enctype="multipart/form-data">
-                    <label>Choose File:<input name="file" type="file" id="input_file"/></label>
+                    <div class="file-input">
+                        <label for="input_file">
+                            <i class="fa-solid fa-paperclip"></i>
+                            <span id="file-name">Attach file</span>
+                        </label>
+                        <input name="file" type="file" id="input_file" style="display:none"/>
+                    </div>
+                    <script>
+                        const input = document.getElementById('input_file');
+                        const label = document.getElementById('file-name');
+                        input.addEventListener('change', (event) => {
+                          const fileName = event.target.value.split('\\').pop();
+                          label.textContent = fileName;
+                        });
+                    </script>
                     <button>Send Files</button>
+                    <button id="send-location">Send location</button>
                 </form>
             </div>
         </div>

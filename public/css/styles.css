@@ -26,9 +26,9 @@ h1 {
 
 label {
     display: block;
-    font-size: 14px;
+    font-size: 16px;
     margin-bottom: 8px;
-    color: #777;
+    color: gray;
 }
 
 input {
@@ -42,6 +42,7 @@ button {
     padding: 12px;
     background: #7C5CBF;
     border: none;
+    border-radius: 10px;
     color: white;
     font-size: 16px;
     transition: background .3s ease;
@@ -137,14 +138,13 @@ button:disabled {
 
 .compose {
     display: flex;
-    flex-shrink: 0;
+    justify-content: space-between;
     margin-top: 16px;
     padding: 24px;
 }
 
 .compose form {
     display: flex;
-    flex-grow: 1;
     margin-right: 16px;
 }
 
@@ -153,7 +153,6 @@ button:disabled {
     width: 100%;
     padding: 12px;
     margin: 0 16px 0 0;
-    flex-grow: 1;
 }
 
 .compose button {
@@ -182,3 +181,13 @@ button:disabled {
     padding: 12px 24px 0 24px;
 }
 
+.form-div{
+    flex: 0 0 75%;
+}
+
+#files{
+    flex: 0 0 25%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
